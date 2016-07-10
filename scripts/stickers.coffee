@@ -81,8 +81,9 @@ class Stickers
   selfDeniedResponse: (name) ->
     @self_denied_responses = [
       "Very noble #{name} but I'm afraid you can't give yourself a sticker",
-      "I don't think you meant to give yourself a sticker!",
+      "Did you really mean to give yourself a sticker?",
       "You can't sticker yourself!"
+      "A colleague will have to give you that sticker I'm afraid!"
     ]
 
   selfDeniedRemoval: (name) ->
