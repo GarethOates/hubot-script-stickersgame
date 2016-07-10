@@ -9,11 +9,11 @@
 #   STICKER_ALLOW_REMOVE_SELF
 #
 # Commands:
-#   hubot sticker assign username stickername - Give the user that sticker
-#   hubot sticker remove username stickername - Removes one of those stickers for that user
+#   hubot sticker assign <user> <stickername> - Give the user that sticker
+#   hubot sticker remove <user> <stickername> - Removes one of those stickers for that user
 #   hubot sticker list - Shows all active stickers
-#   hubot sticker list user - Shows the stickers for that user
-#   hubot sticker create <sticker> - Creates a new sticker
+#   hubot sticker list <user> - Shows the stickers for that user
+#   hubot sticker create <stickername> - Creates a new sticker
 #   hubot sticker leaderboard - Shows everyone's sticker count
 #
 # Author:
@@ -201,7 +201,7 @@ module.exports = (robot) ->
     for sticker in stickersList
       outputList.push sticker
     if outputList.length == 1
-      msg.send "No Stickers Found.  Create a new sticker with the ``sticker create <stickername>`` command"
+      msg.send "No Stickers Found.  Create a new sticker with the sticker create <stickername> command"
     else
       msg.send outputList.join("\n")
 
