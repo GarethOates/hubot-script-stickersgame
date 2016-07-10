@@ -145,6 +145,8 @@ module.exports = (robot) ->
       msg.send "I don't know who #{subject} is..."
       return
 
+    sticker = msg.match[2].trim()
+
     if stickers.getCanremoveUserStickerSelf() or msg.message.user.name.toLowerCase() != subject
       stickers.removeUserSticker validUser.user, sticker
       msg.send "#{stickers.removeUserStickerResponse(validUser.user, sticker)}"
