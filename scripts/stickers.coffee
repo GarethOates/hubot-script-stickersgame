@@ -118,7 +118,7 @@ class Stickers
 module.exports = (robot) ->
   stickers = new Stickers robot
 
-  robot.respond /^sticker assign @*(\w*) (\w*)/i, (msg) ->
+  robot.respond /sticker assign @*(\w*) (\w*)/i, (msg) ->
     robot.logger.info "Assign a Sticker Regex matched"
     subject = msg.match[1].toLowerCase().trim()
     validUser = stickers.userExists subject
@@ -136,7 +136,7 @@ module.exports = (robot) ->
     else
       msg.send msg.random stickers.selfDeniedResponse(msg.message.user.name)
 
-  robot.respond /^sticker remove @*(\w*) (\w*)/i, (msg) ->
+  robot.respond /sticker remove @*(\w*) (\w*)/i, (msg) ->
     robot.logger.info "Remove Sticker Regex Match"
     subject = msg.match[1].toLowerCase().trim()
     validUser = stickers.userExists subject
@@ -152,7 +152,7 @@ module.exports = (robot) ->
     else
       msg.send msg.random stickers.selfDeniedRemoval(msg.message.user.name)
 
-  robot.respond /^sticker create (\w*)/i, (msg) ->
+  robot.respond /sticker create (\w*)/i, (msg) ->
     robot.logger.info "Create new Sticker Regex matched"
     sticker = msg.match[1].trim()
     if not stickers.stickerExists(sticker) and sticker != "sticker"
@@ -161,7 +161,7 @@ module.exports = (robot) ->
     else
       msg.send "That sticker already exists or is not allowed!"
 
-  robot.respond /^sticker destroy (\w*)/i, (msg) ->
+  robot.respond /sticker destroy (\w*)/i, (msg) ->
     robot.logger.info "Destroy Sticker Regex matched"
     sticker = msg.match[1].trim()
     if not stickers.stickerExists(sticker)
@@ -174,7 +174,7 @@ module.exports = (robot) ->
     stickers.setNewListOfStickers list
     msg.send "Okay, now nobody can be assigned the #{sticker} sticker"
 
-  robot.respond /^sticker list @*(\w+)/i, (msg) ->
+  robot.respond /sticker list @*(\w+)/i, (msg) ->
     robot.logger.info "List User Stickers Regex Matched"
     subject = msg.match[1].toLowerCase().trim()
     validUser = stickers.userExists subject
@@ -194,7 +194,7 @@ module.exports = (robot) ->
     else
       msg.send verbiage.join("\n")
 
-  robot.respond /^sticker list$/i, (msg) ->
+  robot.respond /sticker list$/i, (msg) ->
     robot.logger.info "List All Stickers Regex matched"
     stickersList = stickers.stickersList
     outputList = ["Currently Active Stickers:"]
@@ -205,7 +205,7 @@ module.exports = (robot) ->
     else
       msg.send outputList.join("\n")
 
-  robot.respond /^sticker leaderboard/i, (msg) ->
+  robot.respond /sticker leaderboard/i, (msg) ->
     robot.logger.info "Leaderboard List Regex matched"
     theCache = stickers.getEveryone()
     for key,value of theCache
@@ -217,7 +217,7 @@ module.exports = (robot) ->
             verbiage.push "#{key}: #{val}"
       msg.send verbiage.join("\n")
 
-  robot.respond /^sticker debug/i, (msg) ->
+  robot.respond /sticker debug/i, (msg) ->
     robot.logger.info "#{Util.inspect(stickers.getEveryone())}"
     msg.send "#{Util.inspect(robot.brain.data.stickers)}"
 
