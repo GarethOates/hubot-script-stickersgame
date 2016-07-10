@@ -1,10 +1,6 @@
 [
   "hubot-diagnostics",
-  "hubot-nationalrail",
   "hubot-help",
-  "hubot-maps",
-  "hubot-pugme",
   "hubot-redis-brain",
-  "hubot-heroku-keepalive",
-  "hubot-rules"
+  "hubot-heroku-keepalive"
 ]
