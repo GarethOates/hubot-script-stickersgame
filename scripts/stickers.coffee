@@ -99,7 +99,7 @@ class Stickers
     return @STICKER_ALLOW_REMOVE_SELF
 
   stickerExists: (sticker) ->
-    return sticker.toLowerCase() in @stickersList
+    return sticker in @stickersList
 
   userExists: (user) ->
     users = @robot.brain.usersForFuzzyName(user)
