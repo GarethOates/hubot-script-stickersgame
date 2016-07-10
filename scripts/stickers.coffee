@@ -74,7 +74,7 @@ class Stickers
       "#{user.name} is being let off the hook! One #{sticker} removed!",
       "Unbelievable! #{user.name} got away with it! That's one less #{sticker} sticker!"
       "Someone's in the good books! #{sticker} removed for #{user.name}"
-      "The sticker gods are smiling on #{user.name} today. That's a #{sticker} sticker removed'"]
+      "The sticker gods are smiling on #{user.name} today. That's a #{sticker} sticker removed"]
 
     @remove_sticker_responses[Math.floor(Math.random() * @remove_sticker_responses.length)]
 
