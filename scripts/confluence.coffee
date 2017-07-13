@@ -20,7 +20,7 @@ confluence          = require 'atlassian-confluence'
 confluence.host     = process.env.CONFLUENCE_HOST      or ''
 confluence.username = process.env.CONFLUENCE_USERNAME  or ''
 confluence.password = process.env.CONFLUENCE_PASSWORD  or ''
-confluence.context  = process.env.CONFLUENCE_CONTEXT   or ''
+confluence.context  = process.env.CONFLUENCE_CONTEXT   or '/wiki'
 
 unless confluence.host?
   robot.logger.warning 'The CONFLUENCE_HOST environment variable not set'
@@ -32,8 +32,8 @@ module.exports = (robot) ->
 
   robot.respond /((search|show) confluence) (.*)/i, (msg) ->
     confluence.simpleSearch msg.match[3], { limit : 3, expand: 'metadata,space,container,version' }, (res) ->
-      if res and res.results
-        if res.results.length > 0
+      if res
+        if res.results and res.results.length > 0
           res.results.forEach (result) ->
             results = {
               "fallback": "#{result.title} - https://#{confluence.host}#{confluence.context}#{result._links.webui}",
@@ -62,5 +62,5 @@ module.exports = (robot) ->
           msg.reply "No results found for '#{msg.match[2]}'"
       
       else
-        msg.send '..search failed'
+        msg.send 'Sorry, your search has failed.  Please check the logs.'
         console.log res
