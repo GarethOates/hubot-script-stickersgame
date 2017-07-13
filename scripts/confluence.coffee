@@ -17,10 +17,10 @@
 #   justmiles
 
 confluence          = require 'atlassian-confluence'
-confluence.host     = process.env.CONFLUENCE_HOST      or false
-confluence.username = process.env.CONFLUENCE_USERNAME  or false
-confluence.password = process.env.CONFLUENCE_PASSWORD  or false
-confluence.context  = process.env.CONFLUENCE_CONTEXT   or false
+confluence.host     = process.env.CONFLUENCE_HOST      or ''
+confluence.username = process.env.CONFLUENCE_USERNAME  or ''
+confluence.password = process.env.CONFLUENCE_PASSWORD  or ''
+confluence.context  = process.env.CONFLUENCE_CONTEXT   or ''
 
 unless confluence.host?
   robot.logger.warning 'The CONFLUENCE_HOST environment variable not set'
