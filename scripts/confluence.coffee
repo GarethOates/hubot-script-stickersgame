@@ -32,7 +32,7 @@ module.exports = (robot) ->
 
   robot.respond /((search|show) confluence) (.*)/i, (msg) ->
     confluence.simpleSearch msg.match[3], { limit : 3, expand: 'metadata,space,container,version' }, (res) ->
-      if res
+      if res and res.results
         if res.results.length > 0
           res.results.forEach (result) ->
             results = {
