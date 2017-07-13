@@ -25,7 +25,7 @@ mkdirp      = require 'mkdirp'
 querystring = require 'querystring'
 url         = require 'url'
 
-basedir = '/var/log/hubot/worklogs'
+basedir = '~/worklogs'
 
 module.exports = (robot) ->
     # Show WorkLog entries for a certain date for a certain room (or current if omitted)
