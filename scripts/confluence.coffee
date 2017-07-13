@@ -63,3 +63,4 @@ module.exports = (robot) ->
       
       else
         msg.send '..search failed'
+        console.log res
