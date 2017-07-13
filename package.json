@@ -5,18 +5,14 @@
   "author": "Gareth Oates <goatie@gmail.com>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
-    "fs": "0.0.1-security",
+    "atlassian-confluence": "^2.1.0",
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-help": "^0.2.0",
     "hubot-heroku-keepalive": "^1.0.2",
     "hubot-redis-brain": "0.0.3",
     "hubot-scripts": "^2.17.2",
-    "hubot-slack": "^3.4.2",
-    "mkdirp": "^0.5.1",
-    "moment": "^2.18.1",
-    "querystring": "^0.2.0",
-    "url": "^0.11.0"
+    "hubot-slack": "^3.4.2"
   },
   "engines": {
     "node": "8.1.4"
